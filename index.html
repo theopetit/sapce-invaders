@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+	<title>space invaders</title>
+	<style type="text/css">
+		#carre{
+
+			background-color: red;
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 80%;
+			left: 45%;
+		}
+	
+#rectangle{ 
+
+background-color: grey;
+width: 500px;
+height: 250px;
+position: absolute;
+top: -700%;
+left: -200%;
+}
+
+
+
+
+
+
+	</style>
+
+
+</head>
+
+
+
+
+<body>
+
+	
+
+
+
+
+	<div id="carre" ></div>
+	<div id="rectangle"></div>
+		<script type="text/javascript">
+
+
+
+
+
+
+
+			function RecupStyle(id)
+			{
+				Element = document.getElementById(id);
+				var style = Element.currentStyle || window.getComputedStyle(Element);
+				return style
+			}
+
+
+			var carre =  RecupStyle("carre");
+
+			alert(carre.marginLeft);
+
+			var element = document.getElementById("carre");
+			var width = window.innerWidth
+			|| document.documentElement.clientWidth
+			|| document.body.clientWidth;
+
+			console.log(element);
+
+
+			console.log("position de la page :" + width)  
+
+
+
+
+			
+
+
+
+
+			var pos = 0
+			
+			window.onkeydown = function(e) {
+				var key = e.keyCode || e.which;                      
+				switch (key) {
+					case 37:
+
+					console.log("position du carré :" , document.getElementById("carre").getBoundingClientRect().left)
+					console.log("gauche");
+					if(document.getElementById("carre").getBoundingClientRect().left <= 10){
+						console.log("limite gauche");
+
+					}else{
+						pos = pos - 10 ; 
+						document.getElementById("carre").style.marginLeft = pos + "px" ;
+
+					}
+
+
+
+
+
+
+					break;
+					case 39:
+
+					console.log("position du carré :" , document.getElementById("carre").getBoundingClientRect().right)
+					console.log("droite");
+
+
+					if(document.getElementById("carre").getBoundingClientRect().right >= width-20){
+						console.log("limite droite");
+
+					}else{
+						pos = pos + 10 ; 
+						document.getElementById("carre").style.marginLeft = pos + "px" ;
+
+					}
+
+
+					
+
+
+
+					break;
+					default:
+					break;
+				}
+			};
+
+
+		</script>
+	</body>
+
+
+
+
+
+	</html>
